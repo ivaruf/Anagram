@@ -3,6 +3,8 @@ package no.finn;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -45,5 +47,14 @@ public class AnagramTest {
         String toBeSorted = "bfgha";
 
         assertEquals("abfgh", anagram.sortString(toBeSorted));
+    }
+
+    @Test
+    public void inputListPopulatesDictionaryAndAnagramMap() throws Exception {
+        String [] input = {"Hei", "Hopp", "ieh", "notanagram", "ppoh"};
+        anagram.setDictionaryAndPopulateAnagramMap(Arrays.asList(input));
+
+        assertEquals(5, anagram.getDictionary().size());
+        assertEquals(3, anagram.getAnagramMap().size());
     }
 }
