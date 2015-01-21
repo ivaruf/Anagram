@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Anagram {
 
     public boolean isAnagram(String one, String two) {
-        return true;
+        return sortString(one).equals(sortString(two));
     }
 
     public String sortString(String toBeSorted) {
