@@ -29,6 +29,16 @@ public class AnagramTest {
     }
 
     @Test
+    public void shouldBeAnagramWhenCaseIsNotEqual() throws Exception {
+        String one = "Sivle";
+        String two = "Elvis";
+
+        Anagram anagram = new Anagram();
+
+        assertTrue(anagram.isAnagram(one, two));
+    }
+
+    @Test
     public void sortString() throws Exception {
         String toBeSorted = "bfgha";
         Anagram anagram = new Anagram();

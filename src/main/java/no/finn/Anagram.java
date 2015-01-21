@@ -9,7 +9,7 @@ public class Anagram {
     }
 
     public String sortString(String toBeSorted) {
-        char [] sequence = toBeSorted.toCharArray();
+        char [] sequence = toBeSorted.toLowerCase().toCharArray();
         Arrays.sort(sequence);
         return new String(sequence);
     }
