@@ -11,11 +11,11 @@ import static org.junit.Assert.assertTrue;
 
 public class AnagramTest {
 
-    private Anagram anagram;
+    private Anagram anagrams;
 
     @Before
     public void setUp() {
-        anagram = new Anagram();
+        anagrams = new Anagram();
     }
 
     @Test
@@ -23,7 +23,7 @@ public class AnagramTest {
         String one = "abcd";
         String two = "bcad";
 
-        assertTrue(anagram.isAnagram(one, two));
+        assertTrue(anagrams.isAnagram(one, two));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class AnagramTest {
         String one = "hei";
         String two = "hopp";
 
-        assertFalse(anagram.isAnagram(one, two));
+        assertFalse(anagrams.isAnagram(one, two));
     }
 
     @Test
@@ -39,22 +39,22 @@ public class AnagramTest {
         String one = "Sivle";
         String two = "Elvis";
 
-        assertTrue(anagram.isAnagram(one, two));
+        assertTrue(anagrams.isAnagram(one, two));
     }
 
     @Test
     public void sortString() throws Exception {
         String toBeSorted = "bfgha";
 
-        assertEquals("abfgh", anagram.sortString(toBeSorted));
+        assertEquals("abfgh", anagrams.charSorted(toBeSorted));
     }
 
     @Test
     public void inputListPopulatesDictionaryAndAnagramMap() throws Exception {
         String [] input = {"Hei", "Hopp", "ieh", "notanagram", "ppoh"};
-        anagram.setDictionaryAndPopulateAnagramMap(Arrays.asList(input));
+        anagrams.populate(Arrays.asList(input));
 
-        assertEquals(5, anagram.getDictionary().size());
-        assertEquals(3, anagram.getAnagramMap().size());
+        assertEquals(5, anagrams.getDictionary().size());
+        assertEquals(3, anagrams.getAnagramMap().size());
     }
 }

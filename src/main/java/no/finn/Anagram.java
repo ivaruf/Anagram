@@ -8,21 +8,21 @@ public class Anagram {
     private Map<String,List<String>> anagramMap;
 
     public boolean isAnagram(String one, String two) {
-        return sortString(one).equals(sortString(two));
+        return charSorted(one).equals(charSorted(two));
     }
 
-    public String sortString(String toBeSorted) {
-        char [] sequence = toBeSorted.toLowerCase().toCharArray();
+    public String charSorted(String word) {
+        char [] sequence = word.toLowerCase().toCharArray();
         Arrays.sort(sequence);
         return new String(sequence);
     }
 
-    public void setDictionaryAndPopulateAnagramMap(List<String> dictionary) {
+    public void populate(List<String> dictionary) {
         this.dictionary = dictionary;
         anagramMap = new HashMap<String, List<String>>();
 
         for (String word : dictionary) {
-            String key = sortString(word);
+            String key = charSorted(word);
 
             if (anagramMap.containsKey(key)) {
                 anagramMap.get(key).add(word);
