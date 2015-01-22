@@ -58,7 +58,7 @@ public class AnagramTest {
 	@Test
 	public void formatedStringShouldNotHaveCommaAfterLastWord() {
 		String expected = "lev, vel";
-		String result = anagrams.printCommaSeparated(Arrays.asList("lev", "vel"));
+		String result = anagrams.createCommaSeparated(Arrays.asList("lev", "vel"));
 
 		assertEquals(expected, result);
 	}
@@ -66,15 +66,15 @@ public class AnagramTest {
 	@Test
 	public void formatedStringShouldHaveNoCommasIfOnlyOneWord() {
 		String expected = "lev";
-		String result = anagrams.printCommaSeparated(Arrays.asList("lev"));
+		String result = anagrams.createCommaSeparated(Arrays.asList("lev"));
 
 		assertEquals(expected, result);
 	}
 
 	@Test
 	public void formatedStringShouldreturnEmptyStringIfInputIsNullOrEmpty() {
-		assertEquals("", anagrams.printCommaSeparated(new ArrayList()));
-		assertEquals("", anagrams.printCommaSeparated(null));
+		assertEquals("", anagrams.createCommaSeparated(new ArrayList()));
+		assertEquals("", anagrams.createCommaSeparated(null));
 	}
 
 	@Test

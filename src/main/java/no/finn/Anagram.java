@@ -40,7 +40,7 @@ public class Anagram {
 		return copy;
 	}
 
-	public String printCommaSeparated(List<String> words) {
+	public String createCommaSeparated(List<String> words) {
 		if (words == null || words.isEmpty()) {
 			return "";
 		}
