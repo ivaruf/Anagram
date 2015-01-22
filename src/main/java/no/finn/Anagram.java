@@ -41,7 +41,7 @@ public class Anagram {
 			if (anagramMap.containsKey(key)) {
 				anagramMap.get(key).add(word);
 			} else {
-				ArrayList anagrams = new ArrayList();
+				ArrayList<String> anagrams = new ArrayList<String>();
 				anagrams.add(word);
 				anagramMap.put(key, anagrams);
 			}
