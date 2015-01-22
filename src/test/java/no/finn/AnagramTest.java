@@ -89,4 +89,12 @@ public class AnagramTest {
 
 		assertEquals(1140, result.size());
 	}
+
+	@Test
+	public void dictionaryCreatedFromScannerShouldNotContainEmptyStrings() throws FileNotFoundException {
+		Scanner scanner = anagrams.createScannerFromFilePath("src/main/resources/eventyr.txt");
+		List result = anagrams.createWordListFromScanner(scanner);
+		assertEquals(1139, result.size());
+		assertFalse(result.contains(""));
+	}
 }

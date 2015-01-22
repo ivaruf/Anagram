@@ -51,4 +51,15 @@ public class Anagram {
 	public Scanner createScannerFromFilePath(String filepath) throws FileNotFoundException {
 		return new Scanner(new File(filepath));
 	}
+
+	public List<String> createWordListFromScanner(Scanner scanner) {
+		ArrayList<String> words = new ArrayList<String>();
+		while (scanner.hasNextLine()) {
+			String word = scanner.nextLine();
+			if (word.length() > 0) {
+				words.add(word);
+			}
+		}
+		return words;
+	}
 }
