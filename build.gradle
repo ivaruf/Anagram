@@ -10,7 +10,9 @@ repositories {
 }
 
 run {
-    args System.getProperty("args").split()
+	def argument = System.getProperty("args")
+	if(argument != null)
+		args argument.split()
 }
 
 dependencies {
