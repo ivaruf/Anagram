@@ -20,15 +20,15 @@ public class AnagramTest {
     }
 
     @Test
-    public void shouldBeAnagram() throws Exception {
-        String one = "abcd";
+    public void shouldBeAnagram() {
+		String one = "abcd";
         String two = "bcad";
 
         assertTrue(anagrams.isAnagram(one, two));
     }
 
     @Test
-    public void shouldNotBeAnagram() throws Exception {
+    public void shouldNotBeAnagram() {
         String one = "hei";
         String two = "hopp";
 
@@ -36,7 +36,7 @@ public class AnagramTest {
     }
 
     @Test
-    public void shouldBeAnagramWhenCaseIsNotEqual() throws Exception {
+    public void shouldBeAnagramWhenCaseIsNotEqual() {
         String one = "Sivle";
         String two = "Elvis";
 
@@ -44,23 +44,22 @@ public class AnagramTest {
     }
 
     @Test
-    public void sortString() throws Exception {
+    public void sortString() {
         String toBeSorted = "bfgha";
 
         assertEquals("abfgh", anagrams.charSorted(toBeSorted));
     }
 
     @Test
-    public void inputListPopulatesDictionaryAndAnagramMap() throws Exception {
-        String [] input = {"Hei", "Hopp", "ieh", "notanagram", "ppoh"};
-        anagrams.populate(Arrays.asList(input));
+    public void inputListPopulatesDictionaryAndAnagramMap() {
+		anagrams.populate(Arrays.asList("Hei", "Hopp", "ieh", "notanagram", "ppoh"));
 
         assertEquals(5, anagrams.getDictionary().size());
         assertEquals(3, anagrams.getAnagramMap().size());
     }
 
 	@Test
-	public void anagramListForaWordShouldNotContainItself() throws Exception {
+	public void anagramListForaWordShouldNotContainItself() {
 		anagrams.populate(Arrays.asList("elv", "hum", "lev", "vel"));
 
 		List<String> expected = Arrays.asList("lev", "vel");
