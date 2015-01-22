@@ -1,5 +1,7 @@
 package no.finn;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Anagram {
@@ -44,5 +46,9 @@ public class Anagram {
 		}
 		String list = words.toString();
 		return list.substring(1, list.length() -1);
+	}
+
+	public Scanner createScannerFromFilePath(String filepath) throws FileNotFoundException {
+		return new Scanner(new File(filepath));
 	}
 }
