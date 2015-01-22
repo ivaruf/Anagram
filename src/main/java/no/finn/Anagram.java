@@ -41,4 +41,12 @@ public class Anagram {
     public Map<String,List<String>> getAnagramMap() {
         return anagramMap;
     }
+
+	public List<String> getAnagramsFor(String word) {
+		String key = charSorted(word);
+		List<String> anagramList = anagramMap.get(key);
+		List<String> copy = new ArrayList(anagramList);
+		copy.remove(key);
+		return copy;
+	}
 }

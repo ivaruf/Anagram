@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -57,4 +58,16 @@ public class AnagramTest {
         assertEquals(5, anagrams.getDictionary().size());
         assertEquals(3, anagrams.getAnagramMap().size());
     }
+
+	@Test
+	public void anagramListForaWordShouldNotContainItself() throws Exception {
+		anagrams.populate(Arrays.asList("elv", "hum", "lev", "vel"));
+
+		List<String> expected = Arrays.asList("lev", "vel");
+		List<String> result = anagrams.getAnagramsFor("elv");
+
+		assertEquals(expected.size(), result.size());
+		assertEquals(expected.get(0), result.get(0));
+		assertEquals(expected.get(1), result.get(1));
+	}
 }
