@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class AnagramTest {
 
@@ -21,19 +19,11 @@ public class AnagramTest {
     }
 
     @Test
-    public void shouldBeAnagram() {
-		String one = "abcd";
-        String two = "bcad";
-
-        assertTrue(anagrams.isAnagram(one, two));
-    }
-
-    @Test
     public void shouldNotBeAnagram() {
         String one = "hei";
         String two = "hopp";
 
-        assertFalse(anagrams.isAnagram(one, two));
+        assertNotEquals(anagrams.charSorted(one), anagrams.charSorted(two));
     }
 
     @Test
@@ -41,7 +31,7 @@ public class AnagramTest {
         String one = "Sivle";
         String two = "Elvis";
 
-        assertTrue(anagrams.isAnagram(one, two));
+        assertEquals(anagrams.charSorted(one), anagrams.charSorted(two));
     }
 
     @Test
@@ -49,14 +39,6 @@ public class AnagramTest {
         String toBeSorted = "bfgha";
 
         assertEquals("abfgh", anagrams.charSorted(toBeSorted));
-    }
-
-    @Test
-    public void inputListPopulatesDictionaryAndAnagramMap() {
-		anagrams.populate(Arrays.asList("Hei", "Hopp", "ieh", "notanagram", "ppoh"));
-
-        assertEquals(5, anagrams.getDictionary().size());
-        assertEquals(3, anagrams.getAnagramMap().size());
     }
 
 	@Test

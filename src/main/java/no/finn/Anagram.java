@@ -7,10 +7,6 @@ public class Anagram {
     private List<String> dictionary;
     private Map<String,List<String>> anagramMap;
 
-    public boolean isAnagram(String one, String two) {
-        return charSorted(one).equals(charSorted(two));
-    }
-
     public String charSorted(String word) {
         char [] sequence = word.toLowerCase().toCharArray();
         Arrays.sort(sequence);
@@ -32,14 +28,6 @@ public class Anagram {
                 anagramMap.put(key, anagrams);
             }
         }
-    }
-
-    public List<String> getDictionary() {
-        return dictionary;
-    }
-
-    public Map<String,List<String>> getAnagramMap() {
-        return anagramMap;
     }
 
 	public List<String> getAnagramsFor(String word) {
