@@ -6,11 +6,14 @@ import java.util.*;
 
 public class Anagram {
 
+	public static final String DEFAULT_FILE = "src/main/resources/eventyr.txt";
+
 	private Map<String, List<String>> anagramMap;
 
-	public static void main(String... args) throws FileNotFoundException {
+	public static void main(String... args) throws Exception {
+		String filepath = args.length > 0 ? args[0] : DEFAULT_FILE;
 		Anagram anagrams = new Anagram();
-		Scanner scanner = anagrams.createScannerFromFilePath("src/main/resources/eventyr.txt");
+		Scanner scanner = anagrams.createScannerFromFilePath(filepath);
 		anagrams.populate(anagrams.createWordListFromScanner(scanner));
 		anagrams.printAnagrams();
 	}
@@ -18,8 +21,7 @@ public class Anagram {
 	private void printAnagrams() {
 		for (List<String> anagrams : anagramMap.values()) {
 			if (anagrams.size() > 1) {
-				System.out.println(createCommaSeparated(anagrams));
-				System.out.println("");
+				System.out.println(createCommaSeparated(anagrams) + "\n");
 			}
 		}
 	}

@@ -79,7 +79,7 @@ public class AnagramTest {
 
 	@Test
 	public void scannerFromDefaultFileShouldHave_1140_Words() throws FileNotFoundException {
-		Scanner scanner = anagrams.createScannerFromFilePath("src/main/resources/eventyr.txt");
+		Scanner scanner = anagrams.createScannerFromFilePath(Anagram.DEFAULT_FILE);
 		List<String> result = new ArrayList<String>();
 
 		while (scanner.hasNextLine()) {
@@ -92,7 +92,7 @@ public class AnagramTest {
 
 	@Test
 	public void dictionaryCreatedFromScannerShouldNotContainEmptyStrings() throws FileNotFoundException {
-		Scanner scanner = anagrams.createScannerFromFilePath("src/main/resources/eventyr.txt");
+		Scanner scanner = anagrams.createScannerFromFilePath(Anagram.DEFAULT_FILE);
 		List result = anagrams.createWordListFromScanner(scanner);
 		assertEquals(1139, result.size());
 		assertFalse(result.contains(""));
