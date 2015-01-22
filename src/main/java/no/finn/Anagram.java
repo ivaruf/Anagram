@@ -32,7 +32,7 @@ public class Anagram {
 		return new String(sequence);
 	}
 
-	public void populate(List<String> dictionary) {
+	public Map<String, List<String>> populate(List<String> dictionary) {
 		anagramMap = new HashMap<String, List<String>>();
 
 		for (String word : dictionary) {
@@ -46,20 +46,10 @@ public class Anagram {
 				anagramMap.put(key, anagrams);
 			}
 		}
-	}
-
-	public List<String> getAnagramsFor(String word) {
-		String key = charSorted(word);
-		List<String> anagramList = anagramMap.get(key);
-		List<String> copy = new ArrayList(anagramList);
-		copy.remove(key);
-		return copy;
+		return anagramMap;
 	}
 
 	public String createCommaSeparated(List<String> words) {
-		if (words == null || words.isEmpty()) {
-			return "";
-		}
 		String list = words.toString();
 		return list.substring(1, list.length() - 1);
 	}

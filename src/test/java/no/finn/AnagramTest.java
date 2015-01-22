@@ -4,10 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -44,15 +41,12 @@ public class AnagramTest {
 	}
 
 	@Test
-	public void anagramListForaWordShouldNotContainItself() {
-		anagrams.populate(Arrays.asList("elv", "hum", "lev", "vel"));
+	public void testPopulate() {
+		Map<String, List<String>> result = anagrams.populate(Arrays.asList("elv", "hum", "lev", "vel"));
 
-		List<String> expected = Arrays.asList("lev", "vel");
-		List<String> result = anagrams.getAnagramsFor("elv");
-
-		assertEquals(expected.size(), result.size());
-		assertEquals(expected.get(0), result.get(0));
-		assertEquals(expected.get(1), result.get(1));
+		assertEquals(2, result.size());
+		assertEquals(3, result.get("elv").size());
+		assertEquals(1, result.get("hmu").size());
 	}
 
 	@Test
@@ -69,12 +63,6 @@ public class AnagramTest {
 		String result = anagrams.createCommaSeparated(Arrays.asList("lev"));
 
 		assertEquals(expected, result);
-	}
-
-	@Test
-	public void formatedStringShouldreturnEmptyStringIfInputIsNullOrEmpty() {
-		assertEquals("", anagrams.createCommaSeparated(new ArrayList()));
-		assertEquals("", anagrams.createCommaSeparated(null));
 	}
 
 	@Test
