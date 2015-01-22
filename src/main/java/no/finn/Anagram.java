@@ -9,6 +9,22 @@ public class Anagram {
     private List<String> dictionary;
     private Map<String,List<String>> anagramMap;
 
+	public static void main(String ... args) throws FileNotFoundException {
+		Anagram anagrams = new Anagram();
+		Scanner scanner = anagrams.createScannerFromFilePath("src/main/resources/eventyr.txt");
+		anagrams.populate(anagrams.createWordListFromScanner(scanner));
+		anagrams.printAnagrams();
+	}
+
+	private void printAnagrams() {
+		for (List<String> anagrams : anagramMap.values()) {
+			if (anagrams.size() > 1) {
+				System.out.println(createCommaSeparated(anagrams));
+				System.out.println("");
+			}
+		}
+	}
+
     public String charSorted(String word) {
         char [] sequence = word.toLowerCase().toCharArray();
         Arrays.sort(sequence);
