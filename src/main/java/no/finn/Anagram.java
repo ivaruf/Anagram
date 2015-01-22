@@ -49,4 +49,12 @@ public class Anagram {
 		copy.remove(key);
 		return copy;
 	}
+
+	public String printCommaSeparated(List<String> words) {
+		if (words == null || words.isEmpty()) {
+			return "";
+		}
+		String list = words.toString();
+		return list.substring(1, list.length() -1);
+	}
 }

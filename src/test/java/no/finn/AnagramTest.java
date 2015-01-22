@@ -3,6 +3,7 @@ package no.finn;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -69,4 +70,27 @@ public class AnagramTest {
 		assertEquals(expected.get(0), result.get(0));
 		assertEquals(expected.get(1), result.get(1));
 	}
+
+	@Test
+	public void formatedStringShouldNotHaveCommaAfterLastWord() {
+		String expected = "lev, vel";
+		String result = anagrams.printCommaSeparated(Arrays.asList("lev", "vel"));
+
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void formatedStringShouldHaveNoCommasIfOnlyOneWord() {
+		String expected = "lev";
+		String result = anagrams.printCommaSeparated(Arrays.asList("lev"));
+
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void formatedStringShouldreturnEmptyStringIfInputIsNullOrEmpty() {
+		assertEquals("", anagrams.printCommaSeparated(new ArrayList()));
+		assertEquals("", anagrams.printCommaSeparated(null));
+	}
+
 }
