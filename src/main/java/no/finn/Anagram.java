@@ -6,9 +6,9 @@ import java.util.*;
 
 public class Anagram {
 
-    private Map<String,List<String>> anagramMap;
+	private Map<String, List<String>> anagramMap;
 
-	public static void main(String ... args) throws FileNotFoundException {
+	public static void main(String... args) throws FileNotFoundException {
 		Anagram anagrams = new Anagram();
 		Scanner scanner = anagrams.createScannerFromFilePath("src/main/resources/eventyr.txt");
 		anagrams.populate(anagrams.createWordListFromScanner(scanner));
@@ -24,27 +24,27 @@ public class Anagram {
 		}
 	}
 
-    public String charSorted(String word) {
-        char [] sequence = word.toLowerCase().toCharArray();
-        Arrays.sort(sequence);
-        return new String(sequence);
-    }
+	public String charSorted(String word) {
+		char[] sequence = word.toLowerCase().toCharArray();
+		Arrays.sort(sequence);
+		return new String(sequence);
+	}
 
-    public void populate(List<String> dictionary) {
-        anagramMap = new HashMap<String, List<String>>();
+	public void populate(List<String> dictionary) {
+		anagramMap = new HashMap<String, List<String>>();
 
-        for (String word : dictionary) {
-            String key = charSorted(word);
+		for (String word : dictionary) {
+			String key = charSorted(word);
 
-            if (anagramMap.containsKey(key)) {
-                anagramMap.get(key).add(word);
-            } else {
-                ArrayList anagrams = new ArrayList();
-                anagrams.add(word);
-                anagramMap.put(key, anagrams);
-            }
-        }
-    }
+			if (anagramMap.containsKey(key)) {
+				anagramMap.get(key).add(word);
+			} else {
+				ArrayList anagrams = new ArrayList();
+				anagrams.add(word);
+				anagramMap.put(key, anagrams);
+			}
+		}
+	}
 
 	public List<String> getAnagramsFor(String word) {
 		String key = charSorted(word);
@@ -59,7 +59,7 @@ public class Anagram {
 			return "";
 		}
 		String list = words.toString();
-		return list.substring(1, list.length() -1);
+		return list.substring(1, list.length() - 1);
 	}
 
 	public Scanner createScannerFromFilePath(String filepath) throws FileNotFoundException {

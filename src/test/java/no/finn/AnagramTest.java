@@ -13,35 +13,35 @@ import static org.junit.Assert.*;
 
 public class AnagramTest {
 
-    private Anagram anagrams;
+	private Anagram anagrams;
 
-    @Before
-    public void setUp() {
-        anagrams = new Anagram();
-    }
+	@Before
+	public void setUp() {
+		anagrams = new Anagram();
+	}
 
-    @Test
-    public void shouldNotBeAnagram() {
-        String one = "hei";
-        String two = "hopp";
+	@Test
+	public void shouldNotBeAnagram() {
+		String one = "hei";
+		String two = "hopp";
 
-        assertNotEquals(anagrams.charSorted(one), anagrams.charSorted(two));
-    }
+		assertNotEquals(anagrams.charSorted(one), anagrams.charSorted(two));
+	}
 
-    @Test
-    public void shouldBeAnagramWhenCaseIsNotEqual() {
-        String one = "Sivle";
-        String two = "Elvis";
+	@Test
+	public void shouldBeAnagramWhenCaseIsNotEqual() {
+		String one = "Sivle";
+		String two = "Elvis";
 
-        assertEquals(anagrams.charSorted(one), anagrams.charSorted(two));
-    }
+		assertEquals(anagrams.charSorted(one), anagrams.charSorted(two));
+	}
 
-    @Test
-    public void sortString() {
-        String toBeSorted = "bfgha";
+	@Test
+	public void sortString() {
+		String toBeSorted = "bfgha";
 
-        assertEquals("abfgh", anagrams.charSorted(toBeSorted));
-    }
+		assertEquals("abfgh", anagrams.charSorted(toBeSorted));
+	}
 
 	@Test
 	public void anagramListForaWordShouldNotContainItself() {
@@ -82,7 +82,7 @@ public class AnagramTest {
 		Scanner scanner = anagrams.createScannerFromFilePath("src/main/resources/eventyr.txt");
 		List<String> result = new ArrayList<String>();
 
-		while(scanner.hasNextLine()) {
+		while (scanner.hasNextLine()) {
 			String word = scanner.nextLine();
 			result.add(word);
 		}
