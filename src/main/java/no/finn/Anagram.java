@@ -6,7 +6,6 @@ import java.util.*;
 
 public class Anagram {
 
-    private List<String> dictionary;
     private Map<String,List<String>> anagramMap;
 
 	public static void main(String ... args) throws FileNotFoundException {
@@ -32,7 +31,6 @@ public class Anagram {
     }
 
     public void populate(List<String> dictionary) {
-        this.dictionary = dictionary;
         anagramMap = new HashMap<String, List<String>>();
 
         for (String word : dictionary) {
